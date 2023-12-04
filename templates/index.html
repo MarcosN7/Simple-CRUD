@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD App</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Simple CRUD - Free to Use</h1>
+        <form action="/add" method="POST" class="mb-4">
+            <div class="form-row">
+                <div class="col">
+                    <input type="text" name="name" class="form-control" placeholder="Enter name">
+                </div>
+                <div class="col">
+                    <input type="email" name="email" class="form-control" placeholder="Enter email">
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-success">Add User</button>
+                </div>
+            </div>
+        </form>
+        <form action="/" method="POST" class="mb-4">
+            <div class="input-group">
+                <input type="text" name="search" class="form-control" placeholder="Search by name or email">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                    <a href="/" class="btn btn-secondary ml-2">Clear Search</a>
+                </div>
+            </div>
+        </form>
+        <a href="/download_excel" class="btn btn-info">Download as Excel</a>
+        <a href="/download_pdf" class="btn btn-info">Download as PDF</a>
+    
+        <h2>User List</h2>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user[0] }}</td>
+                    <td>{{ user[1] }}</td>
+                    <td>{{ user[2] }}</td>
+                    <td>
+                        <form action="/update/{{ user[0] }}" method="POST" class="d-inline">
+                            <input type="text" name="name" class="form-control form-control-sm" placeholder="New name">
+                            <input type="email" name="email" class="form-control form-control-sm" placeholder="New email">
+                            <button type="submit" class="btn btn-warning btn-sm">Update</button>
+                        </form>
+                        <a href="/delete/{{ user[0] }}" class="btn btn-danger btn-sm ml-2">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

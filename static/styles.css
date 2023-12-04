@@ -1,0 +1,62 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+input[type="text"],
+input[type="email"],
+button {
+    padding: 8px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    margin-right: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: left;
+}
+
+table th {
+    background-color: #ddd;
+}
+
+table td:last-child {
+    text-align: center;
+}
+
+a {
+    color: #d9534f;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
